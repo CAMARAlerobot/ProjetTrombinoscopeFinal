@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -8,8 +6,29 @@
     <title>Vérification du Mot de Passe</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'compte.css' %}">
+    <style>
+        .btn-trombinoscope {
+            background-color: #4CAF50; /* Vert */
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 20px 0;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .btn-trombinoscope:hover {
+            background-color: #45a049; /* Vert foncé au survol */
+        }
+    </style>
 </head>
 <body>
+      <div class="actions" style="text-align: center;">
+        <!-- Lien vers Trombinoscope amélioré -->
+        <a href="{% url 'trombinoscope' %}" class="btn-trombinoscope">Accédez au Trombinoscope</a>
+    </div>
     <h1>Vérification du Mot de Passe</h1>
 
     <form method="POST">
@@ -37,9 +56,8 @@
     {% endif %}
 
     {% if user_not_found %}
-        <p class="annonce">veillez créer un compte si vous ne l'avez pas encore fait. </p>
+        <p class="annonce">Veuillez créer un compte si vous ne l'avez pas encore fait. </p>
         <a class="btncompte" href="{% url 'register' %}">Créer un compte</a>
     {% endif %}
 </body>
 </html>
-

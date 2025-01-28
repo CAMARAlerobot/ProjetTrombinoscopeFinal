@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="{% static 'view_cvs.css' %}">
 </head>
 <body>
+      <li class="nav-item">
+                        <a class="nav-link" href="{% url 'trombinoscope' %}">trombinoscope</a>
+      </li>
     <h1>Mes CVs</h1>
     <!-- Afficher tous les CVs de l'utilisateur sur la page -->
     {% if cvs %}

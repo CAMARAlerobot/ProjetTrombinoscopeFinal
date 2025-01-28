@@ -53,6 +53,30 @@
     </style>
 </head>
 <body>
+
+       <div class="cv-container">
+        <!-- Boutons d'action -->
+        <div class="action-buttons">
+            <!-- Bouton pour imprimer -->
+            <button class="btn-print" onclick="window.print()">Imprimer</button>
+
+            <!-- Bouton pour modifier -->
+            <form action="{% url 'edit_cv' cv.id %}" method="GET" style="display:inline;">
+                <button class="btn-edit" type="submit">Modifier</button>
+            </form>
+
+            <!-- Bouton pour envoyer par e-mail -->
+            <form action="{% url 'send_cv_email' cv.id %}" method="GET" style="display:inline;">
+                {% csrf_token %}
+                <button class="btn-email" type="submit" style="background-color: #ffc107; color: white;">Envoyer par e-mail</button>
+            </form>
+
+            <!-- Bouton pour supprimer -->
+            <form action="{% url 'delete_cv' cv.id %}" method="POST" style="display:inline;">
+                {% csrf_token %}
+                <button class="btn-delete" type="submit" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce CV ?');">Supprimer</button>
+            </form>
+        </div>
     <div class="cv-container">
         <div class="cv-header">
             <h1>{{ cv.personne.nom }} {{ cv.personne.prenom }}</h1>
